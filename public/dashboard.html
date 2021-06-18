@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <title>智慧运维</title>
+
+  <style>
+    body{
+      background-color: #090D1B;
+      user-select: none;
+    }
+    *{
+      margin: 0;
+    }
+    img{
+      width: 100%;
+    }
+    header{
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      padding: 50px 0 0;
+      background: url(/dashboard/header.png) no-repeat;
+      background-size: 100%;
+    }
+    nav{
+      color: #3b99a5;
+      font-size: 20px;
+    }
+    nav+nav{
+      margin-left: 45%;
+    }
+    nav span{
+      display: inline-block;
+      vertical-align: middle;
+      position: relative;
+      margin: 0 35px;
+      cursor: pointer;
+      border-bottom:10px solid transparent;
+      transition: all .3s;
+    }
+    nav span.active,nav span:hover{
+      color:#eee;
+    }
+    nav span.active:after,nav span:hover:after{
+      position: absolute;
+      content:'';
+      top: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: block;
+      background: url(/dashboard/menu-active.png) no-repeat;
+      background-size: contain;
+      width: 120px;
+      height: 30px;
+    }
+    .img-list img{
+      display: none;
+    }
+    .img-list img:first-child{
+      display: block;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <nav>
+    <span class="active">首页</span>
+    <span>物业管理</span>
+    <span>运维成本</span>
+  </nav>
+  <nav>
+    <span>绩效管理</span>
+    <span style="pointer-events: none;" title="暂无">运维设置</span>
+    <span>紧急广播</span>
+  </nav>
+</header>
+<div class="img-list">
+  <img src="/dashboard/1.png" alt="">
+  <img src="/dashboard/2.png" alt="">
+  <img src="/dashboard/3.png" alt="">
+  <img src="/dashboard/4.png" alt="">
+  <img src="/dashboard/5.png" alt="">
+  <img src="/dashboard/6.png" alt="">
+</div>
+<script>
+  const spanList = document.querySelectorAll('nav span')
+  const imgList = document.querySelectorAll('.img-list img')
+  spanList.forEach((el,index)=>{
+    el.onclick = ()=>{
+      spanList.forEach(spanDom=>{
+        spanDom.classList.remove('active')
+      })
+      spanList[index].classList.add('active')
+      imgList.forEach(imgDom=>{
+        imgDom.style.display = 'none'
+      })
+      imgList[index].style.display = 'block'
+    }
+  })
+</script>
+</body>
+</html>

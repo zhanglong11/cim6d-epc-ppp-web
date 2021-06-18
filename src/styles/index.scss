@@ -1,0 +1,876 @@
+@import './variables.scss';
+@import './mixin.scss';
+@import './transition.scss';
+@import './element-ui.scss';
+@import './sidebar.scss';
+
+body {
+  height: 100%;
+  background-color: #f0f2f5;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.el-card__header {
+  padding: 9px 20px;
+  font-size: 16px;
+}
+label {
+  font-weight: 400;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+#app {
+  height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+a {
+  color: #409eff;
+
+  &:hover {
+    color: darken(#409eff, 30%);
+  }
+}
+
+.el-button a {
+  color: inherit;
+}
+
+div:focus {
+  outline: none;
+}
+
+.clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: ' ';
+    clear: both;
+    height: 0;
+  }
+}
+
+ul {
+  list-style: none;
+}
+
+// main-container global css
+
+.fr {
+  float: right;
+}
+
+.blue {
+  color: #2391fc;
+}
+
+.tooltips {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &.end {
+    justify-content: flex-end;
+  }
+
+  > form {
+    flex: 1;
+  }
+  .el-button{
+    transition: all 0.4s;
+  }
+  > div {
+    display: flex;
+    align-items: center;
+    > .el-input {
+      margin-bottom: 17px;
+    }
+    .el-input + .el-button {
+      margin-left: 30px;
+    }
+    > span {
+      font-size: 14px;
+    }
+  }
+
+  .el-row + .el-row {
+    margin-top: 15px;
+  }
+
+  .el-form-item--mini.el-form-item,
+  .el-form-item--small.el-form-item,
+  .el-button {
+    margin-bottom: 17px;
+  }
+  .el-form-item .el-button {
+    margin-bottom: 0;
+  }
+}
+
+.search-box {
+  display: flex;
+  justify-content: space-between;
+
+  .btn-search {
+    flex: 0 0 160px;
+  }
+}
+
+.btn-add {
+  padding-bottom: 10px;
+}
+
+.el-tab-pane {
+  .tooltips {
+    margin-top: 0;
+  }
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tooltips.flex {
+  align-items: center;
+}
+
+.vxe-table--body .vxe-cell {
+  > * + * {
+    margin-left: 10px;
+  }
+
+  .el-button.el-button--text {
+    padding: 0;
+  }
+}
+
+.keyword-lighten {
+  color: #000;
+  background-color: #ffff00;
+}
+
+.htContextMenu:not(.htGhostTable) {
+  z-index: 30000;
+}
+
+body {
+  .vue-treeselect__label {
+    color: #666;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 30px;
+  }
+  /**
+     任务名称：2634/工作流前端迁移到施工系统作为流程管理模块
+     开发人员：李建敏
+     日期：2020-3月-17日
+     任务类型：2、复制修改代码 （3行）
+     **/
+  .vue-treeselect__placeholder,
+  .vue-treeselect__single-value {
+    line-height: 30px;
+  }
+}
+
+//调整vue-treeselect的样式和elementui 风格一致
+body {
+  .vue-treeselect {
+    line-height: 18px;
+    display: block;
+    box-sizing: unset;
+
+    * {
+      box-sizing: unset;
+    }
+
+    vertical-align: middle;
+
+    .vue-treeselect--focused .vue-treeselect__control {
+      border-color: #409eff;
+    }
+
+    .vue-treeselect--open-below .vue-treeselect__menu {
+      box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+      border: none;
+    }
+
+    .vue-treeselect__control {
+      height: 32px;
+      border-color: #dcdfe6;
+      border-radius: 4px !important;
+    }
+
+    .vue-treeselect__multi-value {
+      margin-bottom: 0;
+    }
+
+    .vue-treeselect__multi-value-item-container {
+      padding-top: 3px;
+    }
+
+    .vue-treeselect__placeholder {
+      line-height: 30px;
+    }
+  }
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.padding-top-20 {
+  padding-top: 20px;
+}
+
+// 点的样式根据状态变化
+.dot {
+  color: #606266;
+  position: relative;
+
+  &:before {
+    content: '';
+    height: 10px;
+    width: 10px;
+    position: absolute;
+    left: -21px;
+    background: lightgrey;
+    border-radius: 50%;
+    top: 6px;
+  }
+}
+
+.ing {
+  &:before {
+    background: #ff8d27;
+  }
+}
+
+.finished {
+  &:before {
+    background: #409eff;
+  }
+}
+
+.not-started {
+  &:before {
+    background: lightgray;
+  }
+}
+
+.vxe-pager-size--select-wrapper .vxe-pager-size--select .size--option {
+  line-height: 30px;
+
+  &:hover,
+  &.is--active {
+    background-color: #f5f7fa;
+  }
+}
+
+.vxe-pager-size--select-wrapper {
+  width: auto !important;
+}
+
+//card头部样式修改
+.card-header {
+  display: flex;
+  height: 32px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+//详情页面样式
+.info {
+  display: flex;
+  background: #fff;
+
+  .title {
+    margin: 0;
+    padding: 10px;
+    font-size: 20px;
+    .icon {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: url('~@/assets/code-image.png') no-repeat center;
+      vertical-align: -4px;
+    }
+    span {
+      padding-left: 10px;
+    }
+  }
+
+  .content {
+    flex: 1;
+
+    > ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding-left: 38px;
+      font-size: 14px;
+
+      > li {
+        display: flex;
+        width: 50%;
+        padding: 6px 0;
+
+        .label {
+          white-space: nowrap;
+          position: relative;
+          margin-right: 14px;
+          color: #909399;
+
+          &:after {
+            position: absolute;
+            content: '：';
+            right: -16px;
+            font-size: 14px;
+          }
+        }
+
+        .val {
+          padding: 0 10px;
+          word-break: break-all;
+        }
+      }
+    }
+  }
+
+  .status-box {
+    width: 100px;
+    text-align: right;
+
+    p {
+      margin-bottom: 10px;
+    }
+
+    .status {
+      font-size: 10px;
+      color: #b1b1b1;
+      margin-top: 15px;
+    }
+
+    .status-info {
+      font-size: 16px;
+    }
+  }
+}
+
+//编辑页面按钮样式
+.btn-box {
+  margin-top: 10px;
+  text-align: left;
+}
+
+.card-header {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.btn-box-footer {
+  position: fixed;
+  bottom: 0;
+  height: 70px;
+  background: #fff;
+  -webkit-box-shadow: 0 10px 10px lightgrey;
+  box-shadow: 0 10px 10px 10px lightgrey;
+  width: 100%;
+  right: 0;
+  text-align: right;
+  line-height: 70px;
+  z-index: 1000;
+
+  &-button {
+    margin-right: 30px;
+  }
+}
+
+.margin-bottom-100 {
+  margin-bottom: 100px;
+}
+
+.margin-bottom-10 {
+  margin-bottom: 10px;
+}
+
+.padding-top-10 {
+  padding-top: 10px;
+}
+
+.item-status {
+  text-align: right;
+
+  .status {
+    font-size: 20px;
+  }
+}
+
+.inputWidth {
+  min-width: 624px;
+}
+
+.padding-left-10 {
+  padding-left: 10px;
+}
+
+.width100 {
+  width: 100%;
+}
+
+.base-info-card {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.el-form-item__label {
+  &::after {
+    content: ' :';
+    font-weight: bold;
+    display: inline;
+    color:#999;
+  }
+}
+.none {
+  display: none;
+}
+
+//任务号：1175、修改人：董渊海、修改时间：2020-03-23、描述：去掉默认的5%宽度值，修复'至'字显示不完整问题
+//时间日期选择控件样式修改
+body {
+  .el-date-editor .el-range-separator {
+    width: unset;
+  }
+}
+
+//右侧操作面板
+.right-panel {
+  margin-bottom: -20px;
+  background: #f0f2f5 !important;
+  padding: 0px !important;
+  .form-a {
+    background: #ffffff;
+    padding: 20px 0px 2px 0px;
+  }
+
+  .form-b {
+    background: #ffffff;
+
+    .form-b-head {
+      color: #666666;
+      font-size: 14px;
+      font-weight: bold;
+      padding: 10px 20px;
+      margin-top: 10px;
+      border-bottom: solid 1px #e8eaec;
+    }
+
+    .form-b-table {
+      padding: 20px;
+      /*
+@任务名称：【补：3月1日~3月18日的代码提交注释】
+@开发人员: 董渊海
+@git提交编号: 17b336f4058bf4489a328ddcf5cec6d254a6aee7
+@代码提交修改日期: 2020-03-02
+@任务类型: 修改代码，完成 租赁计划 列表接口对接，新增接口对接，新增租赁计划界面样式调整
+@补加代码注释日期: 2020-04-11
+*/
+      .el-input__prefix {
+        margin: 0px;
+      }
+
+      .form-b-table-foot {
+        border: solid 1px #e8eaec;
+        border-top: 0px;
+        padding: 4px;
+
+        .btn-add {
+          width: 100%;
+          border-style: dashed;
+        }
+      }
+    }
+  }
+
+  .form-c {
+    text-align: right;
+    background: #ffffff;
+    margin-top: 10px;
+    padding: 10px 20px;
+  }
+  /*
+@任务名称：【补：3月1日~3月18日的代码提交注释】
+@开发人员: 董渊海
+@git提交编号: 787aae6116d5f7f5207cddf651b714dcf0608259
+@代码提交修改日期: 2020-03-06
+@任务类型: 修改代码，图纸会审 新增图纸会审界面和图纸会审详情界面样式重新调整
+@补加代码注释日期: 2020-04-11
+*/
+  .form-d {
+    background: #ffffff;
+
+    .form-d-head {
+      color: #666666;
+      font-size: 14px;
+      font-weight: bold;
+      padding: 10px 20px;
+      border-bottom: solid 1px #e8eaec;
+      margin-bottom: 20px;
+    }
+
+    .form-d-body {
+      padding-right: 20px;
+
+      .eg-img {
+        display: flex;
+        justify-content: flex-end;
+        > div {
+          font-size: 12px;
+          color: #606266;
+          width: 80px;
+          height: 80px;
+          line-height: 80px;
+          text-align: center;
+          border: dashed 1px #c1c1c1;
+        }
+      }
+    }
+
+    .form-d-button {
+      text-align: right;
+      background: #ffffff;
+      padding: 10px 20px;
+    }
+
+    .form-d-gutter {
+      background: #f0f2f5;
+      height: 10px;
+    }
+  }
+
+  .detail-a {
+    background: #ffffff;
+    padding: 20px;
+    .detail-a-head {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .detail-a-status {
+      text-align: right;
+      padding-top: 10px;
+
+      > span:nth-child(1) {
+        color: #c1c1c1;
+        font-size: 12px;
+      }
+    }
+
+    .detail-a-des {
+      display: flex;
+      > div {
+        flex: 1;
+        font-size: 14px;
+        > div {
+          padding: 10px 0px;
+          > span:nth-child(1) {
+            color: #c1c1c1;
+            padding-right: 10px;
+          }
+        }
+      }
+      .accessory {
+        display: flex;
+        > div:nth-child(1) {
+          padding-right: 10px;
+          color: #c1c1c1;
+        }
+        > div:nth-child(2) {
+          margin-top: -6px;
+        }
+      }
+      .remark {
+        display: flex;
+        > span:nth-child(1) {
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+
+  .detail-b {
+    background: #ffffff;
+
+    .detail-b-head {
+      color: #666666;
+      font-size: 14px;
+      font-weight: bold;
+      padding: 10px 20px;
+      margin-top: 10px;
+      border-bottom: solid 1px #e8eaec;
+    }
+
+    .detail-b-table {
+      padding: 20px;
+    }
+
+    .detail-b-file {
+      padding: 10px;
+    }
+  }
+
+  .detail-c {
+    text-align: right;
+    background: #ffffff;
+    margin-top: 10px;
+    padding: 10px 20px;
+  }
+
+  /*
+@任务名称：【补：3月1日~3月18日的代码提交注释】
+@开发人员: 董渊海
+@git提交编号: e802eae5b950287398c0f6e296e66da98e86472e
+@代码提交修改日期: 2020-03-02
+@任务类型: 修改代码，完成 需用计划 审核列表接口对接，审核和详情接口对接，审核和详情页样式重新调整
+@补加代码注释日期: 2020-04-11
+*/
+  .audit-a {
+    background: #ffffff;
+
+    .audit-a-head {
+      color: #666666;
+      font-size: 14px;
+      font-weight: bold;
+      padding: 10px 20px;
+      margin-top: 10px;
+      border-bottom: solid 1px #e8eaec;
+    }
+
+    .audit-a-form {
+      margin-top: 14px;
+    }
+
+    .audit-a-des {
+      display: flex;
+      padding: 0px 20px;
+      > div {
+        flex: 1;
+        font-size: 14px;
+        > div {
+          padding: 10px 0px;
+          > span:nth-child(1) {
+            color: #c1c1c1;
+            padding-right: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+// bim模型盒子
+.lo-viewer {
+  width: 100%;
+  height: calc(100%);
+  overflow: hidden;
+  position: relative;
+}
+.lr {
+  text-align: right;
+  padding-bottom: 10px;
+}
+
+/*
+新增分页样式 耿为刚
+*/
+.pagination {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  .total {
+    flex: 1;
+  }
+}
+.box-card {
+  margin-bottom: 20px;
+}
+.el-table {
+  th {
+    background: #f8f8f9;
+    color: #909399;
+    font-size: 13px;
+  }
+}
+.vxe-table.border--full .vxe-body--column,
+.vxe-table.border--full .vxe-footer--column,
+.vxe-table.border--full .vxe-header--column {
+  font-size: 13px;
+}
+.app-main .fixedHeight{
+  height: calc( 100vh - 90px);
+}
+.app-main > div {
+  &.no-padding {
+    padding: 0 !important;
+    background: none !important;
+  }
+  .innerContainer{
+    padding: 40px 20px;
+    height: 100%;
+    overflow: auto;
+  }
+  .white{
+    background-color: #fff;
+  }
+  .details-header {
+    display: flex;
+    align-items: center;
+    .details-title {
+      font-size: 26px;
+      flex: 1;
+    }
+  }
+  // 通用底部按钮栏
+  &.is-footer {
+    padding-bottom: 60px !important;
+  }
+
+  .footer-btn {
+    padding: 0 20px;
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    background: #fff;
+    left: 210px;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    &:before{
+      content:'';
+      display: block;
+      height: 60px;
+    }
+  }
+  /**
+   任务名称：TASK#2876 修改返回样式
+   开发人员：崔洛宜
+   日期：2020-04-03
+   任务类型：修改返回样式
+   **/
+  .footerButton {
+    padding: 0 20px;
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    height: 60px;
+    background: #fff;
+    left: 210px;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  }
+}
+/**
+   任务名称：TASK#2876 修改返回样式
+   开发人员：崔洛宜
+   日期：2020-04-03
+   任务类型：修改返回样式
+   **/
+.app-main > .indexWrapper {
+  margin-bottom: 50px;
+  min-height: calc(100vh - 140px) !important;
+}
+.info .title img {
+  height: 30px;
+}
+
+.footer-divide {
+  display: flex;
+  justify-content: flex-end;
+  background-color: #fff;
+  margin-top: 15px;
+  padding: 10px;
+}
+
+//vxe日期时间选择器 居中
+.vxe-input--date-picker-body td {
+  text-align: center;
+}
+
+.edit-form {
+  background: #fff;
+  padding: 10px;
+}
+
+.scroll-beauty{
+  @include scroll(5px);
+}
+
+.keyword-lighten {
+  color: #000;
+  background-color: #FFFF00;
+}
+
+.promise-btn__spinner-wrapper{
+  margin-left: 5px;
+}
+
+.vue-image-crop-upload{
+  z-index: 10005 !important;
+}
+
+.el-dialog__wrapper.beauty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .el-dialog {
+    display: flex;
+    flex-direction: column;
+    margin: 0 !important;
+
+    .el-dialog__header, .el-dialog__footer {
+      flex-shrink: 0;
+    }
+
+    .el-dialog__body {
+      flex-grow: 1;
+      max-height: calc(90vh - 116px);
+      @include scroll(5px);
+      overflow: auto;
+    }
+  }
+}

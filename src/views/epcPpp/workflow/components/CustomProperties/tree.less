@@ -1,0 +1,23 @@
+// 重写树样式
+.el-tree {
+  /deep/.el-checkbox {
+    &.is-disabled {
+      display: none;
+    }
+  }
+  /deep/.el-tree-node__expand-icon {
+    font-size: 16px;
+    &:before {
+      content: '\e7a0';
+    }
+    &.expanded {
+      transform: rotate(360deg);
+      &:before {
+        content: '\e7a2';
+      }
+    }
+    &.is-leaf{
+      padding: 0;
+    }
+  }
+}
